@@ -17,7 +17,7 @@ case "$1" in
     ;;
     -i|--init)
         git clone https://github.com/specsxc/lab4.git
-        PATH="$PATH:$(pwd)/repository"
+        PATH="$PATH:$(pwd)/lab4"
         export PATH
     ;;
     -e|--error)
