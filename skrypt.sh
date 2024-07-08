@@ -20,6 +20,14 @@ case "$1" in
         PATH="$PATH:$(pwd)/repository"
         export PATH
     ;;
+    -e|--error)
+        liczba_plikow=${2:-100}
+        for ((i=1; i<=liczba_plikow; i++)); do
+            mkdir -p "error${i}"
+            nazwa_pliku="error${i}/error${i}.txt"
+            echo "Nazwa pliku: $nazwa_pliku, Nazwa skryptu: $0, Data utworzenia: $(date)" > "$nazwa_pliku"
+        done
+    ;;
     -h|--help)
         echo "Użycie: $0 [Opcje]"
         echo "--date -d,       Wyświetla dzisiejszą date"
