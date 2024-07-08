@@ -1,56 +1,27 @@
 #!/bin/bash
 
-#task1
+#project part 2
+#v1.1
 
-if [[ "$1" == "--date" ]]; then
-    date
-    # else
-    #     echo "Użycie: $0 --date"
-fi
-
-#task2
-
-#Add .gitignore to ignore files containing 'log'
-
-#task3
-
-if [ "$1" == "--logs" ] && [ $# == 1 ]; then
-    for i in {1..100}; do
-        nazwa_pliku="log${i}.txt"
-        echo "Nazwa pliku: $nazwa_pliku" > "$nazwa_pliku"
-        echo "Nazwa skryptu: $0" >> "$nazwa_pliku"
-        echo "Data utworzenia: $(date)" >> "$nazwa_pliku"
-    done
-    echo "Utworzono 100 plików logx.txt"
-    # else
-    #     echo "Użycie: $0 --logs"
-fi
-
-#task4
-
-if [ $# == 2 ] && [ "$1" == "--logs" ]; then
-    liczba_plikow=$2
-    for i in $(seq 1 "$liczba_plikow"); do
-        nazwa_pliku="log${i}.txt"
-        echo "Nazwa pliku: $nazwa_pliku" > "$nazwa_pliku"
-        echo "Nazwa skryptu: $0" >> "$nazwa_pliku"
-        echo "Data utworzenia: $(date)" >> "$nazwa_pliku"
-    done
-    echo "Utworzono $liczba_plikow plików logx.txt"
-    # else
-    #     echo "Użycie: $0 --logs <liczba_plików>"
-fi
-
-#task5
-
-if [ "$1" == "--help" ]; then
-    echo ""
-    echo "$0 --logs <liczba_plików>"
-    echo "Tworzy podaną liczbę plików tekstowych 'log' (domyślnie 100 bez podania liczby)"
-    echo ""
-    echo "$0 --date"
-    echo "Wyświetla dzisiejszą date"
-    echo ""
-    echo "$0 --help"
-    echo "Pokazuje instrukcje obsługi"
-fi
+case "$1" in
+    -d|--date)
+        date
+    ;;
+    -l|--logs)
+        liczba_plikow=${2:-100}
+        for ((i=1; i<=liczba_plikow; i++)); do
+            nazwa_pliku="log${i}.txt"
+            echo "Nazwa pliku: $nazwa_pliku, Nazwa skryptu: $0, Data utworzenia: $(date)" > "$nazwa_pliku"
+        done
+        echo "Utworzono $liczba_plikow plików logx.txt"
+    ;;
+    -h|--help)
+        echo "Użycie: $0 [Opcje]"
+        echo "--date,       Wyświetla dzisiejszą date"
+        echo "--logs,   [liczba]    Tworzy podaną liczbę plików tekstowych 'log' (domyślnie 100)"
+        echo "--help,       Pokazuje instrukcje obsługi"
+    ;;
+    *)
+        echo "Użycie: $0 --help więcej informacji"
+    ;;
+esac
