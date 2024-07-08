@@ -10,6 +10,6 @@ else
     echo "Użycie: $0 --date"
 fi
 
-
 #task2
 
+#Add .gitignore to ignore files containing 'log'
