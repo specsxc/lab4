@@ -15,11 +15,16 @@ case "$1" in
         done
         echo "Utworzono $liczba_plikow plików logx.txt"
     ;;
+    -i|--init)
+        git clone https://github.com/specsxc/lab4.git
+        PATH="$PATH:$(pwd)/repository"
+        export PATH
+    ;;
     -h|--help)
         echo "Użycie: $0 [Opcje]"
-        echo "--date,       Wyświetla dzisiejszą date"
-        echo "--logs,   [liczba]    Tworzy podaną liczbę plików tekstowych 'log' (domyślnie 100)"
-        echo "--help,       Pokazuje instrukcje obsługi"
+        echo "--date -d,       Wyświetla dzisiejszą date"
+        echo "--logs -l,   [liczba]    Tworzy podaną liczbę plików tekstowych 'log' (domyślnie 100)"
+        echo "--help -h,       Pokazuje instrukcje obsługi"
     ;;
     *)
         echo "Użycie: $0 --help więcej informacji"
