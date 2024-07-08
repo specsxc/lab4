@@ -4,8 +4,8 @@
 
 if [[ "$1" == "--date" ]]; then
     date
-else
-    echo "Użycie: $0 --date"
+    # else
+    #     echo "Użycie: $0 --date"
 fi
 
 #task2
@@ -22,8 +22,8 @@ if [ "$1" == "--logs" ] && [ $# == 1 ]; then
         echo "Data utworzenia: $(date)" >> "$nazwa_pliku"
     done
     echo "Utworzono 100 plików logx.txt"
-else
-    echo "Użycie: $0 --logs"
+    # else
+    #     echo "Użycie: $0 --logs"
 fi
 
 #task4
@@ -37,6 +37,20 @@ if [ $# == 2 ] && [ "$1" == "--logs" ]; then
         echo "Data utworzenia: $(date)" >> "$nazwa_pliku"
     done
     echo "Utworzono $liczba_plikow plików logx.txt"
-else
-    echo "Użycie: skrypt.sh --logs <liczba_plików>"
+    # else
+    #     echo "Użycie: $0 --logs <liczba_plików>"
+fi
+
+#task5
+
+if [ "$1" == "--help" ]; then
+    echo ""
+    echo "$0 --logs <liczba_plików>"
+    echo "Tworzy podaną liczbę plików tekstowych 'log' (domyślnie 100 bez podania liczby)"
+    echo ""
+    echo "$0 --date"
+    echo "Wyświetla dzisiejszą date"
+    echo ""
+    echo "$0 --help"
+    echo "Pokazuje instrukcje obsługi"
 fi
