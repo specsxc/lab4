@@ -9,3 +9,7 @@ if [[ "$data" == "--date" ]]; then
 else
     echo "Użycie: $0 --date"
 fi
+
+
+#task2
+
