@@ -17,8 +17,7 @@ case "$1" in
     ;;
     -i|--init)
         git clone https://github.com/specsxc/lab4.git
-        PATH=$PATH:'C:\Users\speco\Desktop\lab4'
-        export PATH
+        export PATH=$PATH:/c/Users/speco/desktop/lab4
     ;;
     -e|--error)
         liczba_plikow=${2:-100}
